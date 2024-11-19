@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_store/src/components/elevated_btn.dart';
 import 'package:flux_store/src/logic/splash_screen_cubit/splash_screen_cubit.dart';
+import 'package:flux_store/src/packages/helper/helper_function.dart';
 import 'package:flux_store/src/ui/onboarding_screen.dart';
 import 'package:flux_store/src/utils/constants/image_path.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
@@ -23,6 +24,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = HelperFunction.isDarkMode(context);
     return BlocBuilder<SplashScreenCubit, SplashScreenState>(
       builder: (context, state) {
         return Scaffold(
@@ -51,16 +53,23 @@ class SplashScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Welcome to Fluxstore! ",
-                          style: Theme.of(context).textTheme.headlineMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium
+                              ?.copyWith(color: dark ? Colors.white : Colors.white),
                         ),
                         const Gap(10),
                         Text(
                           "The home for a fashionista",
-                          style: Theme.of(context).textTheme.bodyMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(color: dark ? Colors.white : Colors.white),
                         ),
                         const Gap(30),
                         ElevatedBtn(
                           text: "Get Started",
+                          textColor: Colors.white,
                           height: 48,
                           width: 200,
                           backgroundColor: Colors.grey,
@@ -68,7 +77,7 @@ class SplashScreen extends StatelessWidget {
                           isBorderBtn: true,
                           borderColor: Colors.white,
                           onTap: () {
-                            context.navigateToNamed(OnboardingScreen.routeName);
+                            context.screenNavigateToNamed(OnboardingScreen.routeName);
                           },
                         ),
                       ],

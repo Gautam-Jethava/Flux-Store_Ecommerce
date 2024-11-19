@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flux_store/src/packages/helper/helper_function.dart';
 
 class ElevatedBtn extends StatelessWidget {
   const ElevatedBtn(
@@ -10,7 +11,8 @@ class ElevatedBtn extends StatelessWidget {
       required this.radius,
       required this.isBorderBtn,
       this.borderColor,
-      required this.text});
+      required this.text,
+      required this.textColor});
 
   final double height;
   final double width;
@@ -18,11 +20,13 @@ class ElevatedBtn extends StatelessWidget {
   final Color backgroundColor;
   final Color? borderColor;
   final bool isBorderBtn;
+  final Color textColor;
   final void Function()? onTap;
   final String text;
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = HelperFunction.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -35,10 +39,7 @@ class ElevatedBtn extends StatelessWidget {
           border:
               isBorderBtn ? Border.all(color: borderColor!, width: 1) : const Border.fromBorderSide(BorderSide.none),
         ),
-        child: Text(
-          text,
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
+        child: Text(text, style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: textColor)),
       ),
     );
   }

@@ -53,7 +53,7 @@ abstract class AppTextTheme {
     ),
     //=================================================================================//
     labelSmall: const TextStyle().copyWith(
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: FontWeight.normal,
       color: Colors.black,
     ),
@@ -126,7 +126,7 @@ abstract class AppTextTheme {
     ),
     //=================================================================================//
     labelSmall: const TextStyle().copyWith(
-      fontSize: 14,
+      fontSize: 12,
       fontFamily: 'Product Sans Medium',
       fontWeight: FontWeight.normal,
       color: Colors.white,

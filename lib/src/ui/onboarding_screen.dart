@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_store/src/components/elevated_btn.dart';
 import 'package:flux_store/src/logic/onboarding_screen_cubit/onboarding_cubit.dart';
+import 'package:flux_store/src/ui/login_system/sign_up_screen_view.dart';
+import 'package:flux_store/src/ui/splash_screen.dart';
+import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import '../components/custom_page_indicator_widget.dart';
 import '../components/onboarding_widget.dart';
 import '../utils/constants/image_path.dart';
@@ -57,6 +60,7 @@ class OnboardingScreen extends StatelessWidget {
                 bottom: 80,
                 left: 100,
                 child: ElevatedBtn(
+                  textColor: Colors.white,
                   text: "Shopping now",
                   height: 48,
                   width: 200,
@@ -71,7 +75,7 @@ class OnboardingScreen extends StatelessWidget {
                         curve: Curves.ease,
                       );
                     } else {
-                      //Navigator.pushNamed(context, HomeScreen.routeName);
+                      context.screenNavigateAndRemoveUntilNamed(SignUpScreenView.routeName);
                     }
                   },
                 ),

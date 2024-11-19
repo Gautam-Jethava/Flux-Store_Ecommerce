@@ -44,6 +44,7 @@ dependencies:
   intl:
   animated_bottom_navigation_bar:
   otp_text_field:
+  flutter_svg:
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +73,7 @@ flutter:
 
   assets:
     - asset/image/png/
+    - asset/image/svg/social_media_icons/
 
   
   

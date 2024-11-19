@@ -1,4 +1,4 @@
-# flux_store
+# Flux_Store-Ecommerce
 
 A new Flutter project.
 
