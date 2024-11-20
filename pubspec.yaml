@@ -4,18 +4,6 @@ description: "A new Flutter project."
 
 publish_to: 'none' 
 
-
-
-
-
-
-
-
-
-
-
-
-
 version: 1.0.0+1
 
 environment:
@@ -34,17 +22,17 @@ dependencies:
 
   
   
-  cupertino_icons: ^1.0.8
-  flutter_bloc:
-  equatable:
-  google_fonts:
-  gap:
-  json_annotation:
-  hugeicons:
-  intl:
-  animated_bottom_navigation_bar:
-  otp_text_field:
-  flutter_svg:
+  cupertino_icons: any
+  flutter_bloc: any
+  equatable: any
+  google_fonts: any
+  gap: any
+  json_annotation: any
+  hugeicons: any
+  intl: any
+  dependencies: any
+  pinput: any
+  flutter_svg: any
 
 dev_dependencies:
   flutter_test:
@@ -55,9 +43,9 @@ dev_dependencies:
   
   
   
-  flutter_lints: ^4.0.0
-  json_serializable:
-  build_runner:
+  flutter_lints: any
+  json_serializable: any
+  build_runner: any
 
 
 
@@ -74,6 +62,7 @@ flutter:
   assets:
     - asset/image/png/
     - asset/image/svg/social_media_icons/
+    - asset/image/svg/
 
   
   

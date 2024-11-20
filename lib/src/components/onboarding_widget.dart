@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import '../utils/constants/app_color.dart';
-import '../utils/constants/image_path.dart';
 
 class OnboardingWidget extends StatelessWidget {
   const OnboardingWidget({

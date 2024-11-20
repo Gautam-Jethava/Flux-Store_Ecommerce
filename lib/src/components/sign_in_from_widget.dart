@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flux_store/src/components/signin_signup_widget.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';
 

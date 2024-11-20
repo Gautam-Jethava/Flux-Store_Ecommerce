@@ -7,4 +7,6 @@ abstract class ImagePath {
   static String socialMediaIcon1 = "asset/image/svg/social_media_icons/soical_media_icon_1.svg";
   static String socialMediaIcon2 = "asset/image/svg/social_media_icons/soical_media_icon_2.svg";
   static String socialMediaIcon3 = "asset/image/svg/social_media_icons/soical_media_icon_3.svg";
+
+  static String forgetPasswordSuccessfulImage = "asset/image/svg/forget_password_successful_image.svg";
 }

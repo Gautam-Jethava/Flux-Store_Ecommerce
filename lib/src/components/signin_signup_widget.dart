@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flux_store/src/ui/onboarding_screen.dart';
-import 'package:flux_store/src/ui/splash_screen.dart';
-import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';
 
 import '../packages/helper/helper_function.dart';

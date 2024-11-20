@@ -8,7 +8,6 @@ import 'package:flux_store/src/utils/constants/image_path.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';
 
-import '../utils/constants/app_size.dart';
 
 class SplashScreen extends StatelessWidget {
   static String routeName = "/";
