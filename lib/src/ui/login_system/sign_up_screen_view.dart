@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_store/src/logic/login_system_cubit/sign_up_cubit/sign_up_screen_cubit.dart';
+import 'package:flux_store/src/ui/bottom_navigation_bar_screen_view.dart';
 import 'package:flux_store/src/ui/login_system/sign_in_screen_view.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import '../../components/sign_up_from_widget.dart';
@@ -43,7 +44,15 @@ class SignUpScreenView extends StatelessWidget {
                 emailController: emailController,
                 passwordController: passwordController,
                 confirmPasswordController: confirmPasswordController,
-                signUpEvent: () {},
+                signUpEvent: () {
+                  // if (globalKey.currentState!.validate()) {
+                  //   context
+                  //       .read<SignUpScreenCubit>()
+                  //       .signUpWithEmailPassword(emailController.text.trim(), passwordController.text.trim());
+                  //   context.screenNavigateToNamed(BottomNavigationBarScreenView.routeName);
+                  // }
+                  context.screenNavigateToNamed(BottomNavigationBarScreenView.routeName);
+                },
               ),
               otherOptionsText: "or sign up with",
               haveAccount: "Already have account?  ",

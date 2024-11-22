@@ -22,7 +22,7 @@ abstract class AppTextTheme {
     titleLarge: const TextStyle().copyWith(
       fontSize: 20,
       fontWeight: FontWeight.w500,
-      color: Colors.white,
+      color: Colors.black,
     ),
     titleMedium: const TextStyle().copyWith(
       fontSize: 18,
@@ -92,7 +92,7 @@ abstract class AppTextTheme {
     titleLarge: const TextStyle().copyWith(
       fontSize: 20,
       fontWeight: FontWeight.w800,
-      color: Colors.black,
+      color: Colors.white,
     ),
     titleMedium: const TextStyle().copyWith(
       fontSize: 18,

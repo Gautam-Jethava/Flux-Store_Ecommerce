@@ -74,6 +74,11 @@ class OnboardingScreen extends StatelessWidget {
                         curve: Curves.ease,
                       );
                     } else {
+                      // final session = Supabase.instance.client.auth.currentSession;
+                      // session?.user != null
+                      //     ? context.screenNavigateToNamed(OnboardingScreen.routeName)
+                      //     :
+
                       context.screenNavigateAndRemoveUntilNamed(SignUpScreenView.routeName);
                     }
                   },

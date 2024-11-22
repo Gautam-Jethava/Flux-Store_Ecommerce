@@ -7,7 +7,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.4
+  sdk: 3.5.4
 
 
 
@@ -22,17 +22,19 @@ dependencies:
 
   
   
-  cupertino_icons: any
-  flutter_bloc: any
-  equatable: any
-  google_fonts: any
-  gap: any
-  json_annotation: any
-  hugeicons: any
-  intl: any
-  dependencies: any
-  pinput: any
-  flutter_svg: any
+  cupertino_icons:
+  flutter_bloc:
+  equatable:
+  google_fonts:
+  gap:
+  json_annotation:
+  hugeicons:
+  intl:
+  pinput:
+  flutter_svg:
+  supabase_flutter:
+  flutter_dotenv:
+
 
 dev_dependencies:
   flutter_test:
@@ -43,9 +45,9 @@ dev_dependencies:
   
   
   
-  flutter_lints: any
-  json_serializable: any
-  build_runner: any
+  flutter_lints:
+  json_serializable:
+  build_runner:
 
 
 
@@ -62,7 +64,9 @@ flutter:
   assets:
     - asset/image/png/
     - asset/image/svg/social_media_icons/
+    - asset/image/svg/banner/
     - asset/image/svg/
+
 
   
   

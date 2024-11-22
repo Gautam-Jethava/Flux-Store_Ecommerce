@@ -1,9 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_store/src/logic/bottom_navigation_cubit/bottom_navigation_screen_cubit.dart';
+import 'package:flux_store/src/logic/home_screen_cubit/home_screen_cubit.dart';
 import 'package:flux_store/src/ui/home_screen_view.dart';
 import 'package:hugeicons/hugeicons.dart';
+
+import '../logic/discover_screen_cubit/discover_screen_cubit.dart';
+import 'discover_screen_view.dart';
 
 class BottomNavigationBarScreenView extends StatelessWidget {
   static String routeName = "/BottomNavigationBarScreenView";
@@ -11,21 +14,18 @@ class BottomNavigationBarScreenView extends StatelessWidget {
   const BottomNavigationBarScreenView({super.key});
 
   static Widget builder(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottomNavigationScreenCubit(),
-      child: const BottomNavigationBarScreenView(),
-    );
+    return MultiBlocProvider(providers: [
+      BlocProvider(create: (context) => BottomNavigationScreenCubit()),
+      BlocProvider(create: (context) => HomeScreenCubit()),
+      BlocProvider(create: (context) => DiscoverScreenCubit()),
+    ], child: const BottomNavigationBarScreenView());
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> screens = [
       const HomeScreenView(),
-      Container(
-        height: 100,
-        width: 100,
-        color: Colors.amber,
-      ),
+      const DiscoverScreenView(),
       Container(
         height: 100,
         width: 100,
@@ -37,9 +37,32 @@ class BottomNavigationBarScreenView extends StatelessWidget {
         color: Colors.green,
       ),
     ];
+    List<String> screenNames = [
+      'FluxStore',
+      'Discover',
+      'My Order',
+      '',
+    ];
     return BlocBuilder<BottomNavigationScreenCubit, BottomNavigationScreenState>(
       builder: (context, state) {
+        final theme = Theme.of(context).textTheme;
         return Scaffold(
+          appBar: AppBar(
+            leading: const Icon(
+              HugeIcons.strokeRoundedMenu05,
+            ),
+            centerTitle: true,
+            title: Text(
+              screenNames[state.currentIndex],
+              style: theme.titleMedium,
+            ),
+            actions: const [
+              Padding(
+                padding: EdgeInsets.only(right: 30),
+                child: Icon(HugeIcons.strokeRoundedNotification03),
+              )
+            ],
+          ),
           body: screens[state.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: state.currentIndex,

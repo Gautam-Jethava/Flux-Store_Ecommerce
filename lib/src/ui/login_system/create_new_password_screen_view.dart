@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flux_store/src/logic/login_system_cubit/create_new_password_cubit/create_new_password_screen_cubit.dart';
 import 'package:flux_store/src/packages/resources/text_field_style.dart';
-import 'package:flux_store/src/ui/home_screen_view.dart';
 import 'package:flux_store/src/utils/constants/image_path.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';

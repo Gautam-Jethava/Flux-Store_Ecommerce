@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flux_store/src/packages/helper/helper_function.dart';
 
 class ElevatedBtn extends StatelessWidget {
   const ElevatedBtn(
@@ -26,7 +25,7 @@ class ElevatedBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = HelperFunction.isDarkMode(context);
+    //final isDarkMode = HelperFunction.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
