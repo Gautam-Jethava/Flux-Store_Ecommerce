@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "520781483402",
+    "project_id": "flux-store-c0d12",
+    "storage_bucket": "flux-store-c0d12.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520781483402:android:b53f74fe6274bc18b00c73",
+        "android_client_info": {
+          "package_name": "com.example.flux_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520781483402-vre64g9mhe2u8vgqcuou4vf0gc9h8kpg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flux_store",
+            "certificate_hash": "1ee75443dfe0ba67c15b13287818d3266192590f"
+          }
+        },
+        {
+          "client_id": "520781483402-jgrd85k71ddvb980erd7nft4a77hhkfg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKMX-X3vpD_5zqEqqI5XEjWvYy0j2yrsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520781483402-jgrd85k71ddvb980erd7nft4a77hhkfg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "520781483402-foh6dj4scc0qp3hbjtort654fm0mu7q8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fluxStore"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

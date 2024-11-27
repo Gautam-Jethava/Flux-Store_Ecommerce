@@ -6,4 +6,10 @@ abstract interface class AppConstants {
       RegExp(r'^.*(?=.{8,255})((?=.*[!@#$%^&*_,]))(?=.*\d)((?=.*[A-Z]))((?=.*[a-z])).*$');
   static final userNamePatternRegExp = RegExp('[a-zA-Z]');
   static final confirmPasswordPatternRegExp = passwordPatternRegExp;
+
+  static const String productListApi = "https://api.escuelajs.co/api/v1";
+}
+
+abstract interface class ApiEndPoints {
+  static const String getProductList = "/categories/1/products";
 }

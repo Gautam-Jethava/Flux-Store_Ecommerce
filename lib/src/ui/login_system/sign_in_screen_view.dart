@@ -24,35 +24,46 @@ class SignInScreenView extends StatelessWidget {
     final emailController = TextEditingController();
     final passwordController = TextEditingController();
 
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: SingleChildScrollView(
-            child: SignInSignUpWidget(
-              otherAuthNav: () {
-                context.screenNavigateToNamed(SignUpScreenView.routeName);
-              },
-              topTitle: "Log into\n\n",
-              topSubTitle: "your account",
-              textFieldForm: SignInFromWidget(
-                emailController: emailController,
-                passwordController: passwordController,
-                globalKey: globalKey,
-                signInEvent: () {},
+    return BlocBuilder<SignInScreenCubit, SignInScreenState>(
+      builder: (context, state) {
+        return Scaffold(
+          resizeToAvoidBottomInset: false,
+          body: SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: SingleChildScrollView(
+                child: SignInSignUpWidget(
+                  otherAuthNav: () {
+                    context.screenNavigateToNamed(SignUpScreenView.routeName);
+                  },
+                  topTitle: "Log into\n\n",
+                  topSubTitle: "your account",
+                  textFieldForm: SignInFromWidget(
+                    emailController: emailController,
+                    passwordController: passwordController,
+                    globalKey: globalKey,
+                    signInEvent: () {
+                      // if (globalKey.currentState!.validate()) {
+                      //   context.read<SignInScreenCubit>().signInWithEmailAndPasswordSupabase(
+                      //         emailController.text.trim(),
+                      //         passwordController.text.trim(),
+                      //       );
+                      // }
+                    },
+                  ),
+                  otherOptionsText: "or Log in with",
+                  haveAccount: "Don’t have an account?  ",
+                  haveAccountOrNot: "Sign Up",
+                  space1: 60,
+                  space2: 30,
+                  space3: 60,
+                  space4: 40,
+                ),
               ),
-              otherOptionsText: "or Log in with",
-              haveAccount: "Don’t have an account?  ",
-              haveAccountOrNot: "Sign Up",
-              space1: 60,
-              space2: 30,
-              space3: 60,
-              space4: 40,
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

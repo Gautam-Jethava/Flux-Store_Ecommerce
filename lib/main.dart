@@ -5,12 +5,11 @@ import 'package:flux_store/src/utils/theme.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
   await Supabase.initialize(
       url: 'https://oipvlycmbdbthmnxraiy.supabase.co',
       anonKey:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9pcHZseWNtYmRidGhtbnhyYWl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzIxNjQ5MDcsImV4cCI6MjA0Nzc0MDkwN30.4cgPnGrAOPDXYOGwp64PncsOt8Jao5WNR3Jai6FpOis');
+
   runApp(const MyApp());
 }
 

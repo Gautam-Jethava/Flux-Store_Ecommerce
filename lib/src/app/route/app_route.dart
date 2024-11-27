@@ -9,6 +9,9 @@ import '../../ui/home_screen_view.dart';
 import '../../ui/login_system/create_new_password_screen_view.dart';
 import '../../ui/login_system/forget_password_screen_view.dart';
 import '../../ui/login_system/forget_password_verification_screen_view.dart';
+import '../../ui/product_details_screen_view.dart';
+import '../../ui/search_product_found_screen_view.dart';
+import '../../ui/search_view_screen.dart';
 
 class AppRoute {
   static Map<String, WidgetBuilder> get screens => <String, WidgetBuilder>{
@@ -21,5 +24,8 @@ class AppRoute {
         CreateNewPasswordScreenView.routeName: CreateNewPasswordScreenView.builder,
         HomeScreenView.routeName: HomeScreenView.builder,
         BottomNavigationBarScreenView.routeName: BottomNavigationBarScreenView.builder,
+        SearchScreenView.routeName: SearchScreenView.builder,
+        SearchProductFoundScreenView.routeName: SearchProductFoundScreenView.builder,
+        ProductDetailsScreenView.routeName: ProductDetailsScreenView.builder,
       };
 }

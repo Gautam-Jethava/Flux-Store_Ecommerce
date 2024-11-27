@@ -60,13 +60,13 @@ abstract class AppTextTheme {
     labelLarge: const TextStyle().copyWith(
       fontSize: 16,
       fontFamily: 'Nunito',
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w700,
       color: Colors.black,
     ),
     labelMedium: const TextStyle().copyWith(
       fontSize: 16,
       fontFamily: 'Nunito',
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w600,
       color: Colors.black.withOpacity(0.5),
     ),
   );
@@ -134,13 +134,13 @@ abstract class AppTextTheme {
     labelLarge: const TextStyle().copyWith(
       fontSize: 16,
       fontFamily: 'Nunito',
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w700,
       color: Colors.white,
     ),
     labelMedium: const TextStyle().copyWith(
       fontSize: 16,
       fontFamily: 'Nunito',
-      fontWeight: FontWeight.w700,
+      fontWeight: FontWeight.w600,
       color: Colors.white.withOpacity(0.5),
     ),
   );

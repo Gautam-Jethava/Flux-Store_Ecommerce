@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flux_store/src/packages/domain/repositories/product_list_repository.dart';
 
 part 'home_screen_state.dart';
 
@@ -11,7 +12,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
   }
 
   Timer? timer;
-
+  ProductListRepository productListRepository = ProductListRepository();
   void changeCategory(int index) {
     emit(state.copyWith(categoryIndex: index));
   }

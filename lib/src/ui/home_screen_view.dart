@@ -28,8 +28,9 @@ class HomeScreenView extends StatelessWidget {
     List<Map<String, dynamic>> productList = [
       {'image': ImagePath.modelImage1, 'title': "Turtleneck Sweater", "price": "\$39.99"},
       {'image': ImagePath.modelImage2, 'title': "Long Sleeve Dress", "price": "\$45.00"},
-      {'image': ImagePath.modelImage1, 'title': "Turtleneck Sweater", "price": "\$39.99"},
-      {'image': ImagePath.modelImage2, 'title': "Long Sleeve Dress", "price": "\$45.00"},
+      {'image': ImagePath.modelImage7, 'title': "Turtleneck Sweater", "price": "\$39.99"},
+      {'image': ImagePath.modelImage8, 'title': "Long Sleeve Dress", "price": "\$45.00"},
+      {'image': ImagePath.modelImage9, 'title': "Long Sleeve Dress", "price": "\$45.00"},
       {'image': ImagePath.modelImage3, 'title': "Sportswear Set", "price": "\$80.99"},
       {'image': ImagePath.modelImage4, 'title': "Elegant Dress", "price": "\$75.00"},
     ];
