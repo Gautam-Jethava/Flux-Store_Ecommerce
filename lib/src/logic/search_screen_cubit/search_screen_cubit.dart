@@ -56,3 +56,43 @@ class SearchScreenCubit extends Cubit<SearchScreenState> {
     }
   }
 }
+
+/*
+int binarySearch(List<int> arr, int targetVal) {
+  var left = 0;
+  var right = arr.length - 1;
+
+  while (left <= right) {
+    var mid = (left + right) ~/ 2; // Use ~/ for integer division
+
+    if (arr[mid] == targetVal) {
+      return mid;
+    }
+
+    if (arr[mid] < targetVal) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
+}
+
+// Example usage within a Flutter widget:
+   @override
+   Widget build(BuildContext context) {
+     final myArray = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
+     final myTarget = 15;
+
+     final result = binarySearch(myArray, myTarget);
+
+     if (result != -1) {
+       print("Value $myTarget found at index $result");
+     } else {
+       print("Target not found in array.");
+     }
+
+     // ... rest of your widget code
+   }
+ */

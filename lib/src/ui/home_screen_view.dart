@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_store/src/utils/constants/image_path.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
-import '../components/banner_widget.dart';
+
 import '../components/home_screen_category_icon.dart';
 import '../logic/home_screen_cubit/home_screen_cubit.dart';
 
@@ -42,6 +42,8 @@ class HomeScreenView extends StatelessWidget {
       {'image': ImagePath.modelImage5, 'title': 'White fashion hoodie', 'price': '\$29.00'},
       {'image': ImagePath.modelImage6, 'title': 'White fashion hoodie', 'price': '\$30.00'},
     ];
+
+    int isSelected = 0;
     return BlocBuilder<HomeScreenCubit, HomeScreenState>(
       builder: (context, state) {
         return Scaffold(
@@ -63,6 +65,8 @@ class HomeScreenView extends StatelessWidget {
                         ),
                       ),
                     ),
+
+                    // ad banner
                     const Gap(50),
                     Center(
                       child: Stack(
@@ -71,12 +75,14 @@ class HomeScreenView extends StatelessWidget {
                             height: 170,
                             width: 312,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20),
-                                image: DecorationImage(
-                                    alignment: Alignment.center,
-                                    image: AssetImage(bannerImages[state.bannerIndex]),
-                                    fit: BoxFit.cover)),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                alignment: Alignment.center,
+                                image: AssetImage(bannerImages[state.bannerIndex]),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
                           Positioned(
                             bottom: 20,
@@ -86,8 +92,27 @@ class HomeScreenView extends StatelessWidget {
                               children: List.generate(
                                 3,
                                 (index) {
-                                  return BannerWidget(
-                                    isSelected: state.bannerIndex == index,
+                                  return Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                                    height: 10,
+                                    width: 10,
+                                    decoration: BoxDecoration(
+                                      color: isSelected == index ? Colors.white : Colors.red,
+                                      shape: BoxShape.circle,
+                                      border: isSelected == index
+                                          ? Border.all(color: Colors.black, width: 1)
+                                          : const Border.fromBorderSide(BorderSide.none),
+                                      boxShadow: isSelected == index
+                                          ? [
+                                              BoxShadow(
+                                                color: isSelected == index ? Colors.white : Colors.black,
+                                                spreadRadius: 1,
+                                                blurStyle: BlurStyle.inner,
+                                                offset: const Offset(0, 0),
+                                              ),
+                                            ]
+                                          : [],
+                                    ),
                                   );
                                 },
                               ),
@@ -103,6 +128,7 @@ class HomeScreenView extends StatelessWidget {
                         ],
                       ),
                     ),
+
                     const Gap(40),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
