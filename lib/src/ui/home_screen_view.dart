@@ -99,9 +99,7 @@ class HomeScreenView extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: isSelected == index ? Colors.white : Colors.red,
                                       shape: BoxShape.circle,
-                                      border: isSelected == index
-                                          ? Border.all(color: Colors.black, width: 1)
-                                          : const Border.fromBorderSide(BorderSide.none),
+                                      border: isSelected == index ? Border.all(color: Colors.black, width: 1) : const Border.fromBorderSide(BorderSide.none),
                                       boxShadow: isSelected == index
                                           ? [
                                               BoxShadow(
@@ -150,6 +148,8 @@ class HomeScreenView extends StatelessWidget {
                       ),
                     ),
                     const Gap(30),
+
+                    // product list view
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: SizedBox(
@@ -169,8 +169,7 @@ class HomeScreenView extends StatelessWidget {
                                     flex: 7,
                                     child: Container(
                                       decoration: BoxDecoration(
-                                          image: DecorationImage(image: AssetImage(list['image']), fit: BoxFit.cover),
-                                          borderRadius: BorderRadius.circular(10)),
+                                          image: DecorationImage(image: AssetImage(list['image']), fit: BoxFit.cover), borderRadius: BorderRadius.circular(10)),
                                     ),
                                   ),
                                   Expanded(
@@ -198,7 +197,9 @@ class HomeScreenView extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     const Gap(20),
+
                     Image.asset(ImagePath.bannerAdImage3),
                     const Gap(40),
                     Padding(
@@ -237,11 +238,7 @@ class HomeScreenView extends StatelessWidget {
                                     border: Border.all(color: const Color(0xff23262F)),
                                     borderRadius: BorderRadius.circular(10),
                                     boxShadow: const [
-                                      BoxShadow(
-                                          color: Color(0xff23262F),
-                                          blurRadius: 4,
-                                          spreadRadius: 0.6,
-                                          blurStyle: BlurStyle.outer),
+                                      BoxShadow(color: Color(0xff23262F), blurRadius: 4, spreadRadius: 0.6, blurStyle: BlurStyle.outer),
                                     ],
                                   ),
                                   child: Row(
