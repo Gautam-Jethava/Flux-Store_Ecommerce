@@ -5,6 +5,7 @@ import 'package:flux_store/src/ui/login_system/sign_up_screen_view.dart';
 import 'package:flux_store/src/ui/onboarding_screen.dart';
 import 'package:flux_store/src/ui/splash_screen.dart';
 
+import '../../ui/add_to_cart_product_screen_view.dart';
 import '../../ui/home_screen_view.dart';
 import '../../ui/login_system/create_new_password_screen_view.dart';
 import '../../ui/login_system/forget_password_screen_view.dart';
@@ -27,5 +28,6 @@ class AppRoute {
         SearchScreenView.routeName: SearchScreenView.builder,
         SearchProductFoundScreenView.routeName: SearchProductFoundScreenView.builder,
         ProductDetailsScreenView.routeName: ProductDetailsScreenView.builder,
+        AddToCartProductScreenView.routeName: AddToCartProductScreenView.builder,
       };
 }

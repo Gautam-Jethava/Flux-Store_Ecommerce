@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flux_store/src/components/back_to_previous_screen_btn_widget.dart';
+import 'package:flux_store/src/ui/add_to_cart_product_screen_view.dart';
+import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';
 import 'package:hugeicons/hugeicons.dart';
 
@@ -15,25 +18,30 @@ class AddToCartBtnWidget extends StatelessWidget {
     final dark = HelperFunction.isDarkMode(context);
     return Container(
       color: dark ? Colors.black : Colors.white,
-      child: Container(
-        height: 70,
-        decoration: BoxDecoration(
-          color: dark ? Colors.white : Colors.black,
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(40),
-            topRight: Radius.circular(40),
-          ),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(HugeIcons.strokeRoundedShoppingBasket01, color: dark ? Colors.black : Colors.white),
-            const Gap(20),
-            Text(
-              "Add To Cart",
-              style: theme.titleMedium?.copyWith(color: dark ? Colors.black : Colors.white, fontWeight: FontWeight.w700),
+      child: GestureDetector(
+        onTap: () {
+          context.screenNavigateToNamed(AddToCartProductScreenView.routeName);
+        },
+        child: Container(
+          height: 70,
+          decoration: BoxDecoration(
+            color: dark ? Colors.white : Colors.black,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(40),
             ),
-          ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(HugeIcons.strokeRoundedShoppingBasket01, color: dark ? Colors.black : Colors.white),
+              const Gap(20),
+              Text(
+                "Add To Cart",
+                style: theme.titleMedium?.copyWith(color: dark ? Colors.black : Colors.white, fontWeight: FontWeight.w700),
+              ),
+            ],
+          ),
         ),
       ),
     );

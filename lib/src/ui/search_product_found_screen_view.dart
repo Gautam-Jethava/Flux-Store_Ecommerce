@@ -69,9 +69,7 @@ class SearchProductFoundScreenView extends StatelessWidget {
                         decoration: BoxDecoration(
                           color: dark ? Colors.black : Colors.white,
                           borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                              width: 3,
-                              color: dark ? const Color(0xff33302E).withOpacity(0.6) : const Color(0xffB6B6B6)),
+                          border: Border.all(width: 3, color: dark ? const Color(0xff33302E).withOpacity(0.6) : const Color(0xffB6B6B6)),
                         ),
                         child: DropdownButton<String>(
                           value: dropdownValue,
@@ -117,8 +115,7 @@ class SearchProductFoundScreenView extends StatelessWidget {
                                   width: 142,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                        image: AssetImage(searchProductItem['image']), fit: BoxFit.cover),
+                                    image: DecorationImage(image: AssetImage(searchProductItem['image']), fit: BoxFit.cover),
                                   ),
                                 ),
                               ),
@@ -143,8 +140,7 @@ class SearchProductFoundScreenView extends StatelessWidget {
                                           Text(
                                             searchProductItem['realAmount'],
                                             style: theme.titleSmall?.copyWith(
-                                                decoration: TextDecoration.lineThrough,
-                                                color: dark ? const Color(0xffE6E8EC) : const Color(0xffBEBFC4)),
+                                                decoration: TextDecoration.lineThrough, color: dark ? const Color(0xffE6E8EC) : const Color(0xffBEBFC4)),
                                           ),
                                         ],
                                       ),
