@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flux_store/src/logic/add_to_cart_product_cubit/add_to_cart_product_screen_cubit.dart';
+import 'package:flux_store/src/packages/helper/helper_function.dart';
 import 'package:flux_store/src/utils/constants/image_path.dart';
 import 'package:gap/gap.dart';
 
@@ -20,40 +21,71 @@ class AddToCartProductScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = HelperFunction.isDarkMode(context);
     final theme = Theme.of(context).textTheme;
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: Column(
-          children: [
-            Row(
+    return BlocBuilder<AddToCartProductScreenCubit, AddToCartProductScreenState>(
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: dark ? Color(0xff23262F) : Color(0xffFFFFFF),
+          resizeToAvoidBottomInset: false,
+          body: SafeArea(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Column(
               children: [
-                const BackToPreviousScreenBtn(),
-                const Gap(110),
-                Text(
-                  "Your cart",
-                  style: theme.headlineSmall,
+                Row(
+                  children: [
+                    const BackToPreviousScreenBtn(),
+                    const Gap(110),
+                    Text(
+                      "Your cart",
+                      style: theme.headlineSmall,
+                    ),
+                  ],
+                ),
+                Gap(20),
+                CartProductContainerWidget(
+                  productImage: ImagePath.modelImage2,
+                  productName: "Sportswear Set",
+                  productPrice: 80,
+                  productColor: "Color:Cream",
+                  productSize: "Size: L",
                 ),
               ],
             ),
-            Gap(20),
-            CartProductContainerWidget(),
-          ],
-        ),
-      )),
+          )),
+        );
+      },
     );
   }
 }
 
-class CartProductContainerWidget extends StatelessWidget {
+class CartProductContainerWidget extends StatefulWidget {
   const CartProductContainerWidget({
     super.key,
+    required this.productImage,
+    required this.productName,
+    required this.productSize,
+    required this.productColor,
+    required this.productPrice,
   });
+
+  final String productImage;
+  final String productName;
+  final String productSize;
+  final String productColor;
+  final double productPrice;
+
+  @override
+  State<CartProductContainerWidget> createState() => _CartProductContainerWidgetState();
+}
+
+class _CartProductContainerWidgetState extends State<CartProductContainerWidget> {
+  bool isSelectedBox = false;
 
   @override
   Widget build(BuildContext context) {
+    final dark = HelperFunction.isDarkMode(context);
     final theme = Theme.of(context).textTheme;
     return Container(
       alignment: AlignmentDirectional.center,
@@ -70,11 +102,12 @@ class CartProductContainerWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // product image
           Expanded(
             flex: 3,
             child: Container(
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage(ImagePath.modelImage2), fit: BoxFit.fill),
+                image: DecorationImage(image: AssetImage(widget.productImage), fit: BoxFit.fill),
 
                 //                        color: Colors.red,
                 borderRadius: BorderRadius.only(
@@ -84,12 +117,12 @@ class CartProductContainerWidget extends StatelessWidget {
               ),
             ),
           ),
+
+          // product details
           Expanded(
             flex: 6,
             child: Container(
               decoration: BoxDecoration(
-//                color: Colors.red,
-
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20),
                   bottomRight: Radius.circular(20),
@@ -98,6 +131,7 @@ class CartProductContainerWidget extends StatelessWidget {
               ),
               child: Row(
                 children: [
+                  // basic info
                   Expanded(
                     flex: 2,
                     child: Padding(
@@ -106,48 +140,63 @@ class CartProductContainerWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Sportswear Set", style: theme.titleSmall),
+                          Text(widget.productName, style: theme.titleSmall),
                           Gap(10),
-                          Text("\u002480", style: theme.titleSmall),
+                          Text("\u0024${widget.productPrice.toStringAsFixed(0)}", style: theme.titleSmall),
                           Gap(10),
                           Text(
-                            "Size: L | Color:Cream",
+                            "${widget.productSize} | ${widget.productColor}",
                             style: theme.titleSmall?.copyWith(fontSize: 10, color: Color(0xff8A8A8F)),
                           ),
                         ],
                       ),
                     ),
                   ),
+
+                  // product quantity
                   Expanded(
+                    flex: 2,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 8.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Checkbox(
-                            value: false,
-                            onChanged: (value) {},
+                            side: BorderSide.none,
+                            fillColor: WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+                              if (states.contains(WidgetState.selected)) {
+                                return Color(0xff508A7B);
+                              }
+                              return Colors.grey; // Grey when unselected
+                            }),
+                            value: isSelectedBox,
+                            onChanged: (value) {
+                              setState(() {
+                                isSelectedBox = !isSelectedBox;
+                              });
+                            },
                           ),
 
                           // product quantity
                           Container(
                             alignment: AlignmentDirectional.center,
-                            height: 22,
-                            width: 70,
-                            decoration: BoxDecoration(border: Border.all(), borderRadius: BorderRadius.circular(20)),
-                            child: Row(
-                              //crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(child: IconButton(onPressed: () {}, icon: Icon(Icons.remove, size: 10))),
-                                Expanded(
-                                  child: Text(
+                            height: 28,
+                            width: 80,
+                            decoration: BoxDecoration(border: Border.all(color: dark ? Colors.white : Colors.black), borderRadius: BorderRadius.circular(20)),
+                            child: OverflowBox(
+                              maxWidth: double.infinity,
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(onPressed: () {}, icon: Icon(Icons.remove, size: 14)),
+                                  Text(
                                     "1",
                                     style: theme.titleSmall?.copyWith(fontSize: 10),
                                   ),
-                                ),
-                                Expanded(child: IconButton(onPressed: () {}, icon: Icon(Icons.add, size: 10))),
-                              ],
+                                  IconButton(onPressed: () {}, icon: Icon(Icons.add, size: 14)),
+                                ],
+                              ),
                             ),
                           )
                         ],

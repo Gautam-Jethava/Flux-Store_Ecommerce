@@ -7,7 +7,7 @@ import 'package:flux_store/src/ui/onboarding_screen.dart';
 import 'package:flux_store/src/utils/constants/image_path.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';
-
+//import 'dart:developer' as developer;
 
 class SplashScreen extends StatelessWidget {
   static String routeName = "/";
@@ -34,8 +34,7 @@ class SplashScreen extends StatelessWidget {
                 Container(
                   height: double.infinity,
                   width: double.infinity,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage(ImagePath.splashImage), fit: BoxFit.cover)),
+                  decoration: BoxDecoration(image: DecorationImage(image: AssetImage(ImagePath.splashImage), fit: BoxFit.cover)),
                 ),
                 Container(
                   height: double.infinity,
@@ -52,18 +51,12 @@ class SplashScreen extends StatelessWidget {
                       children: [
                         Text(
                           "Welcome to Fluxstore! ",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineMedium
-                              ?.copyWith(color: dark ? Colors.white : Colors.white),
+                          style: Theme.of(context).textTheme.headlineMedium?.copyWith(color: dark ? Colors.white : Colors.white),
                         ),
                         const Gap(10),
                         Text(
                           "The home for a fashionista",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(color: dark ? Colors.white : Colors.white),
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: dark ? Colors.white : Colors.white),
                         ),
                         const Gap(30),
                         ElevatedBtn(
@@ -76,6 +69,7 @@ class SplashScreen extends StatelessWidget {
                           isBorderBtn: true,
                           borderColor: Colors.white,
                           onTap: () {
+                            // developer.log("Splash Screen to Intro Screen");
                             context.screenNavigateToNamed(OnboardingScreen.routeName);
                           },
                         ),

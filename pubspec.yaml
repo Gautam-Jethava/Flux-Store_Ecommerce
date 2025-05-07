@@ -2,12 +2,12 @@ name: flux_store
 description: "A new Flutter project."
 
 
-publish_to: 'none' 
+publish_to: 'none'
 
 version: 1.0.0+1
 
 environment:
-  sdk: 3.5.4
+  sdk: 3.7.2
 
 
 
@@ -19,7 +19,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-
+  
+  
   
   
   cupertino_icons:
@@ -41,10 +42,12 @@ dependencies:
   flutter_rating_stars:
 
 
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  
   
   
   
@@ -59,8 +62,6 @@ dev_dependencies:
 
 
 flutter:
-
-  
   
   
   uses-material-design: true
@@ -73,7 +74,12 @@ flutter:
     - asset/image/svg/
 
 
-  
+flutter_intl:
+  enabled: true
+  class_name: TZBLocalizations
+  arb_dir: lib/src/app/l10n/arb/
+  output_dir: lib/src/app/l10n/generated/
+  use_deferred_loading: true
   
   
   

@@ -49,6 +49,7 @@ class CustomTextFieldStyle extends StatelessWidget {
         textInputAction: textInputAction,
         onTapOutside: (event) => FocusScope.of(context).unfocus(),
         cursorColor: Colors.black,
+//        inputFormatters: [],
         decoration: InputDecoration(
             hintText: hintText,
             hintStyle: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w300),

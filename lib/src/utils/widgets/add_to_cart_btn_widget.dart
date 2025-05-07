@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flux_store/src/components/back_to_previous_screen_btn_widget.dart';
 import 'package:flux_store/src/ui/add_to_cart_product_screen_view.dart';
 import 'package:flux_store/src/utils/constants/navigation_extension.dart';
 import 'package:gap/gap.dart';
