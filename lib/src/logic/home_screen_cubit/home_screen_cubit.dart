@@ -13,12 +13,13 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   Timer? timer;
   ProductListRepository productListRepository = ProductListRepository();
+
   void changeCategory(int index) {
     emit(state.copyWith(categoryIndex: index));
   }
 
   void changeBanner() {
-    timer?.cancel(); // Cancel existing timer
+    timer?.cancel();
 
     timer = Timer.periodic(const Duration(milliseconds: 1500), (timer) {
       final currentBannerIndex = state.bannerIndex;
